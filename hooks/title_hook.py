@@ -52,7 +52,7 @@ def main():
         json.dump({"n": n}, f)
     title = info.get("title") or ""
     formatted = "｜" in title
-    if not ((n <= 3 and not formatted) or n % 8 == 0):
+    if not ((n <= 3 and not formatted) or n % 10 == 0):
         return
     if formatted:
         rules = SHORT.replace("{title}", title)
