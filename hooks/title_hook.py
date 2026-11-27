@@ -12,7 +12,7 @@ SHORT = ("[话题自动命名 · 静默任务] 当前标题：{title}。仅当�
          "否则什么都不做。不要向用户提及此任务。")
 
 
-def current_title(cli_sid):
+def find_session(cli_sid):
     root = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Claude-Data")
     for p in glob.glob(os.path.join(root, "*", "claude-code-sessions", "*", "*", "local_*.json")):
         try:
@@ -21,8 +21,8 @@ def current_title(cli_sid):
         except Exception:
             continue
         if d.get("cliSessionId") == cli_sid:
-            return d.get("title") or ""
-    return ""
+            return d
+    return {}
 
 
 def main():
@@ -35,6 +35,11 @@ def main():
         return
     if os.path.exists(os.path.join(BASE, "paused")) or os.path.exists(os.path.join(STATE, sid + ".pinned")):
         return
+    info = find_session(sid)
+    # whitelist: only top-level desktop sessions. Unknown (no session file: headless/subagent)
+    # and branch/side-chat sessions (forked / spawned / btw) are skipped.
+    if not info or any(k in info for k in ("forkedFromSessionId", "spawnedFrom", "btwLoweredFrom")):
+        return
     os.makedirs(STATE, exist_ok=True)
     sp = os.path.join(STATE, sid + ".json")
     try:
@@ -45,7 +50,7 @@ def main():
     n += 1
     with open(sp, "w", encoding="utf-8") as f:
         json.dump({"n": n}, f)
-    title = current_title(sid)
+    title = info.get("title") or ""
     formatted = "｜" in title
     if not ((n <= 3 and not formatted) or n % 8 == 0):
         return
