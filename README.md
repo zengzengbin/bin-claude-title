@@ -1,4 +1,4 @@
-# binbin-claude-title
+# bin-claude-title
 
 **English** | [简体中文](README.zh-CN.md)
 
@@ -6,7 +6,7 @@ Keep your **Claude Code desktop** session titles in step with what you are actua
 
 | Before | After |
 | --- | --- |
-| Codex plugin comparison | 🧩 binbin-claude-title｜Claude desktop port |
+| Codex plugin comparison | 🧩 bin-claude-title｜Claude desktop port |
 | Reply to greeting | 🧩 Email verification｜Fix expiry |
 
 ## Acknowledgements
@@ -30,17 +30,17 @@ Trade-offs: a few extra main-model tokens per injection, plus one extra tool cal
 Requirements: Claude desktop app on Windows (Code tab), Python 3.
 
 ```powershell
-git clone https://github.com/zengzengbin/binbin-claude-title
-cd binbin-claude-title
+git clone https://github.com/zengzengbin/bin-claude-title
+cd bin-claude-title
 python install.py
 ```
 
-The installer copies the files to `~/.claude/hooks/binbin-title/` and registers the hook in `~/.claude/settings.json` (backed up first as `settings.json.pre-binbin-title`; safe to re-run). Start a new session to try it.
+The installer copies the files to `~/.claude/hooks/bin-title/` and registers the hook in `~/.claude/settings.json` (backed up first as `settings.json.pre-bin-title`; safe to re-run). Start a new session to try it.
 
 ## Controls
 
-- Pause: create the file `~/.claude/hooks/binbin-title/paused`; delete it to resume.
-- Pin a session's title: create `~/.claude/hooks/binbin-title/state/<session-id>.pinned`.
+- Pause: create the file `~/.claude/hooks/bin-title/paused`; delete it to resume.
+- Pin a session's title: create `~/.claude/hooks/bin-title/state/<session-id>.pinned`.
 
 ## Known limitations
 

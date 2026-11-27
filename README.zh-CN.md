@@ -1,4 +1,4 @@
-# binbin-claude-title
+# bin-claude-title
 
 [English](README.md) | **简体中文**
 
@@ -6,7 +6,7 @@
 
 | 原来的标题 | 更容易找回的标题 |
 | --- | --- |
-| Codex 插件功能对标 | 🧩 binbin-claude-title｜Claude 桌面版移植 |
+| Codex 插件功能对标 | 🧩 bin-claude-title｜Claude 桌面版移植 |
 | 回应中文问候 | 🧩 邮箱验证码｜过期排查 |
 
 ## 致谢
@@ -30,17 +30,17 @@
 要求：Windows 的 Claude 桌面应用（Code 标签）、Python 3。
 
 ```powershell
-git clone https://github.com/zengzengbin/binbin-claude-title
-cd binbin-claude-title
+git clone https://github.com/zengzengbin/bin-claude-title
+cd bin-claude-title
 python install.py
 ```
 
-安装脚本会把文件复制到 `~/.claude/hooks/binbin-title/`，并在 `~/.claude/settings.json` 注册 hook（先备份为 `settings.json.pre-binbin-title`，可重复运行）。新开会话即可生效。
+安装脚本会把文件复制到 `~/.claude/hooks/bin-title/`，并在 `~/.claude/settings.json` 注册 hook（先备份为 `settings.json.pre-bin-title`，可重复运行）。新开会话即可生效。
 
 ## 控制
 
-- 暂停：创建 `~/.claude/hooks/binbin-title/paused` 文件；删除即恢复。
-- 固定某个话题：创建 `~/.claude/hooks/binbin-title/state/<会话ID>.pinned`。
+- 暂停：创建 `~/.claude/hooks/bin-title/paused` 文件；删除即恢复。
+- 固定某个话题：创建 `~/.claude/hooks/bin-title/state/<会话ID>.pinned`。
 
 ## 已知限制
 
