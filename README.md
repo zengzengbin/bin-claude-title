@@ -6,7 +6,7 @@ Keep your **Claude Code desktop** session titles in step with what you are actua
 
 | Before | After |
 | --- | --- |
-| Codex plugin comparison | 🧩 oil-codex-title｜Claude desktop port |
+| Codex plugin comparison | 🧩 binbin-claude-title｜Claude desktop port |
 | Reply to greeting | 🧩 Email verification｜Fix expiry |
 
 ## Acknowledgements

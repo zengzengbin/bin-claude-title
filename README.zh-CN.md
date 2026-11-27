@@ -6,7 +6,7 @@
 
 | 原来的标题 | 更容易找回的标题 |
 | --- | --- |
-| Codex 插件功能对标 | 🧩 oil-codex-title｜Claude 桌面版移植 |
+| Codex 插件功能对标 | 🧩 binbin-claude-title｜Claude 桌面版移植 |
 | 回应中文问候 | 🧩 邮箱验证码｜过期排查 |
 
 ## 致谢
