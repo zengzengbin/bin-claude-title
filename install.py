@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Install oil-claude-title: copy hook files and register the UserPromptSubmit hook (idempotent)."""
+"""Install binbin-claude-title: copy hook files and register the UserPromptSubmit hook (idempotent)."""
 import json, os, shutil, sys
 
 home = os.path.expanduser("~/.claude")
-dest = os.path.join(home, "hooks", "oil-title")
+dest = os.path.join(home, "hooks", "binbin-title")
 src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hooks")
 os.makedirs(dest, exist_ok=True)
 for name in ("title_hook.py", "naming_rules.md"):
@@ -12,7 +12,7 @@ for name in ("title_hook.py", "naming_rules.md"):
 settings = os.path.join(home, "settings.json")
 data = {}
 if os.path.exists(settings):
-    shutil.copy2(settings, settings + ".pre-oil-title")
+    shutil.copy2(settings, settings + ".pre-binbin-title")
     with open(settings, encoding="utf-8") as f:
         data = json.load(f)
 cmd = '%s "%s"' % ("python" if os.name == "nt" else "python3", os.path.join(dest, "title_hook.py").replace("\\", "/"))

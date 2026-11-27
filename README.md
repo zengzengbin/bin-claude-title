@@ -1,4 +1,4 @@
-# oil-claude-title
+# binbin-claude-title
 
 让 **Claude Code 桌面端**的话题标题跟上你正在做的事情：自动命名为「类别 emoji + 对象｜目标」，话题再多也好找。
 
@@ -28,17 +28,17 @@
 要求：Windows 的 Claude 桌面应用（Code 标签）、Python 3。
 
 ```powershell
-git clone https://github.com/zengzengbin/oil-claude-title
-cd oil-claude-title
+git clone https://github.com/zengzengbin/binbin-claude-title
+cd binbin-claude-title
 python install.py
 ```
 
-安装脚本会把文件复制到 `~/.claude/hooks/oil-title/`，并在 `~/.claude/settings.json` 注册 hook（先备份为 `settings.json.pre-oil-title`，可重复运行）。新开会话即可生效。
+安装脚本会把文件复制到 `~/.claude/hooks/binbin-title/`，并在 `~/.claude/settings.json` 注册 hook（先备份为 `settings.json.pre-binbin-title`，可重复运行）。新开会话即可生效。
 
 ## 控制
 
-- 暂停：创建 `~/.claude/hooks/oil-title/paused` 文件；删除即恢复。
-- 固定某个话题：创建 `~/.claude/hooks/oil-title/state/<会话ID>.pinned`。
+- 暂停：创建 `~/.claude/hooks/binbin-title/paused` 文件；删除即恢复。
+- 固定某个话题：创建 `~/.claude/hooks/binbin-title/state/<会话ID>.pinned`。
 
 ## 已知限制
 

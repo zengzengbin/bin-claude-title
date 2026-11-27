@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """UserPromptSubmit hook: periodically ask the main agent to review/update the
 desktop session title (via mcp__ccd_session_mgmt__set_session_title).
-Pause: create ~/.claude/hooks/oil-title/paused ; pin a session: create state/<sid>.pinned"""
+Pause: create ~/.claude/hooks/binbin-title/paused ; pin a session: create state/<sid>.pinned"""
 import glob, json, os, sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
