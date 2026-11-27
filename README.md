@@ -21,7 +21,7 @@ The original uses a Stop hook plus a separate background model. Claude Code desk
 1. A `UserPromptSubmit` hook injects the naming rules into the current conversation's main agent at suitable turns.
 2. The main agent decides whether the title needs updating and, if so, calls the desktop app's `set_session_title` silently.
 
-When it fires: during the first 3 turns, whenever the title is not yet in `emoji subject｜goal` form; after that, every 4th turn. A title that already complies is left alone.
+When it fires: during the first 3 turns, whenever the title is not yet in `emoji subject｜goal` form; after that, every 8th turn. A title that already complies is left alone.
 
 Trade-offs: a few extra main-model tokens per injection, plus one extra tool call when a rename happens. There is no separate model, usage ledger, or idle-session archiving.
 

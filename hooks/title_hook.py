@@ -7,6 +7,10 @@ import glob, json, os, sys
 BASE = os.path.dirname(os.path.abspath(__file__))
 STATE = os.path.join(BASE, "state")
 
+SHORT = ("[话题自动命名 · 静默任务] 当前标题：{title}。仅当用户已明确转向新主线、或标题与主线明显不符时，"
+         "才用 mcp__ccd_session_mgmt__set_session_title（session_id=\"self\"）按原格式「emoji 对象｜目标」改一次；"
+         "否则什么都不做。不要向用户提及此任务。")
+
 
 def current_title(cli_sid):
     root = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Claude-Data")
@@ -43,10 +47,13 @@ def main():
         json.dump({"n": n}, f)
     title = current_title(sid)
     formatted = "｜" in title
-    if not ((n <= 3 and not formatted) or n % 4 == 0):
+    if not ((n <= 3 and not formatted) or n % 8 == 0):
         return
-    with open(os.path.join(BASE, "naming_rules.md"), encoding="utf-8") as f:
-        rules = f.read().replace("{title}", title or "（未知）")
+    if formatted:
+        rules = SHORT.replace("{title}", title)
+    else:
+        with open(os.path.join(BASE, "naming_rules.md"), encoding="utf-8") as f:
+            rules = f.read().replace("{title}", title or "（未知）")
     out = {"hookSpecificOutput": {"hookEventName": "UserPromptSubmit", "additionalContext": rules}}
     sys.stdout.reconfigure(encoding="utf-8")
     print(json.dumps(out, ensure_ascii=False))
